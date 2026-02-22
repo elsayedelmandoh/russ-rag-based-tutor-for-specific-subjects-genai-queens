@@ -35,7 +35,7 @@ RUSS solves the "Pain of Secrecy" in military education. Cadets need modern AI a
 - Smart PDF parsing (Marker/PyMuPDF) preserving equations and tables
 - Local embeddings storage (ChromaDB)
 - Hybrid Retriever (BM25 + vector similarity)
-- Run llama3.2:1b via Ollama
+- Llama 3 (8B-Instruct) via Ollama as the reasoning engine.
 - Strict prompt engineering with citations
 - Simple Streamlit chat interface
 

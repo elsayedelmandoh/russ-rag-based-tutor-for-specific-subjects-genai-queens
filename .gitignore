@@ -1,3 +1,5 @@
 .env
 data/
 models/
+.claude/
+.specify/
