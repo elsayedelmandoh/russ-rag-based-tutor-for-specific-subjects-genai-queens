@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from pydantic import BaseSettings, Field
-from pydantic import SettingsConfigDict
+from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic import Field
 
 
 class Settings(BaseSettings):
@@ -34,11 +34,8 @@ class Settings(BaseSettings):
 	uploads_path: str = Field("./data/uploads", description="Path to store uploaded files")
 
 	# PDF parsing
-	pdf_parser: str = Field("marker", description="Primary PDF parser: marker or pymupdf")
+	pdf_parser: str = Field("pymupdf", description="Primary PDF parser: marker or pymupdf")
 	max_file_size_mb: int = Field(100, description="Maximum allowed upload file size in megabytes")
-
-	class Config:
-		arbitrary_types_allowed = True
 
 
 settings = Settings()

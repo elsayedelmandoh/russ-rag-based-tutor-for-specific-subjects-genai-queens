@@ -48,9 +48,9 @@ def parse_pdf(file_path: Path, parser: str = "marker") -> Tuple[str, int]:
         import pymupdf4llm
 
         md_pages = pymupdf4llm.to_markdown(str(file_path), page_chunks=True)
-        # md_pages may be list of pages; join with page separators
+        # md_pages may be list of pages; join with explicit form-feed separators
         if isinstance(md_pages, (list, tuple)):
-            md = "\n\n".join(md_pages)
+            md = "\f".join(md_pages)
             page_count = len(md_pages)
         else:
             md = md_pages
@@ -67,7 +67,8 @@ def parse_pdf(file_path: Path, parser: str = "marker") -> Tuple[str, int]:
         pages = []
         for page in doc:
             pages.append(page.get_text("text"))
-        md = "\n\n".join(pages)
+        # Join pages with explicit form-feed so downstream chunking can detect page boundaries
+        md = "\f".join(pages)
         return md, len(pages)
     except Exception as exc:
         raise ValueError(f"unable to parse PDF: {exc}")

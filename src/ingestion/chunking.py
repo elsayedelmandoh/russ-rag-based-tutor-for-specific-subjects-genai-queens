@@ -24,11 +24,14 @@ def chunk_document(text: str, file_name: str, collection_name: str, chunk_size: 
     while start < text_len:
         end = min(start + chunk_size, text_len)
         piece = text[start:end]
-        # Attempt to assign a page number if a page break exists
-        page_number = None
-        if "\f" in piece:
-            # crude heuristic: count page breaks before start
-            page_number = text[:start].count("\f") + 1
+
+        # Determine page number based on number of form-feed separators
+        # preceding the chunk start. This works even if the chunk does
+        # not itself contain a page break.
+        try:
+            page_number = text[:start].count("\f") + 1 if "\f" in text else None
+        except Exception:
+            page_number = None
 
         chunks.append(
             Chunk(

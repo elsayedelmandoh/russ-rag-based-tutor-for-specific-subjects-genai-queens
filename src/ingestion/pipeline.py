@@ -10,6 +10,8 @@ from src.ingestion.chunking import chunk_document
 from src.ingestion.embeddings import embed_and_store
 from src.ingestion.pdf_parser import parse_pdf
 from src.models.schemas import Document, DocumentStatus
+from src.retrieval.bm25_index import BM25Index
+from src.retrieval.hybrid_retriever import get_bm25_index
 from src.utils.helpers import collection_name_for_file
 from src.retrieval.vector_store import get_or_create_collection
 
@@ -66,6 +68,11 @@ def ingest_document(file_path: Path, file_name: str) -> Document:
         if not chunks:
             raise ValueError("Document produced no chunks after parsing")
 
+        # Build BM25 index for this collection
+        logger.info(f"Building BM25 index for {len(chunks)} chunks")
+        bm25_index = get_bm25_index(collection_name)
+        bm25_index.build_index(chunks)
+
         # Embed and store
         logger.info(f"Embedding and storing {len(chunks)} chunks")
         embed_and_store(chunks, collection_name)
@@ -78,5 +85,7 @@ def ingest_document(file_path: Path, file_name: str) -> Document:
         logger.error(f"Ingestion failed for {file_name}: {e}")
         document.status = DocumentStatus.FAILED
         document.error_message = str(e)
+
+    return document
 
     return document

@@ -6,6 +6,7 @@ import logging
 from typing import List
 
 from src.config.settings import settings
+from src.ingestion.embeddings import generate_embeddings
 from src.models.schemas import Chunk, RetrievalResult
 from src.retrieval.bm25_index import BM25Index
 from src.retrieval.reranker import rerank
@@ -56,9 +57,11 @@ class HybridRetriever:
             # BM25 search
             bm25_index = get_bm25_index(collection_name)
             bm25_results = bm25_index.search(query, k=k)
+            logger.debug(f"BM25 search for '{collection_name}': {len(bm25_results)} results")
 
             # Semantic search (vector similarity via ChromaDB)
             semantic_results = self._semantic_search(query, collection_name, k=k)
+            logger.debug(f"Semantic search for '{collection_name}': {len(semantic_results)} results")
 
             # Merge and deduplicate by chunk_id
             merged = self._merge_results(bm25_results, semantic_results, k=k)
@@ -81,12 +84,32 @@ class HybridRetriever:
         return reranked
 
     def _semantic_search(self, query: str, collection_name: str, k: int = 10) -> List[RetrievalResult]:
-        """Search using vector similarity via ChromaDB."""
+        """Search using vector similarity via ChromaDB.
+        
+        Args:
+            query: Search query
+            collection_name: Collection to query
+            k: Number of results
+            
+        Returns:
+            List of RetrievalResult objects
+        """
         try:
-            # Generate embedding for query (simplified - would need embedding model)
-            # For now, return empty to avoid hard dependency
-            logger.debug(f"Semantic search not yet integrated for '{collection_name}'")
-            return []
+            logger.debug(f"Starting semantic search for query: {query[:50]}...")
+            
+            # Generate embedding for query
+            embeddings = generate_embeddings([query])
+            if not embeddings or not embeddings[0]:
+                logger.warning("Failed to generate query embedding")
+                return []
+            
+            query_embedding = embeddings[0]
+            
+            # Query ChromaDB with embedding
+            results = query_collection(collection_name, query_embedding, k=k)
+            logger.debug(f"Semantic search returned {len(results)} results")
+            return results
+            
         except Exception as e:
             logger.error(f"Semantic search failed: {e}")
             return []

@@ -61,13 +61,12 @@ def main():
 
 	col1, col2 = st.sidebar.columns([3, 1])
 	with col1:
-		new_subject = st.text_input("New subject:", key="subject_input")
+		new_subject = st.text_input("New subject:")
 	with col2:
 		if st.button("Add", key="add_subject_btn"):
 			if new_subject and new_subject not in [s.name for s in st.session_state.subjects]:
 				from src.models.schemas import Subject
 				st.session_state.subjects.append(Subject(name=new_subject))
-				st.session_state.subject_input = ""
 				st.rerun()
 
 	if st.session_state.subjects:
@@ -89,6 +88,10 @@ def main():
 		uploaded = st.sidebar.file_uploader("Upload PDF", type=["pdf"], accept_multiple_files=True)
 		if uploaded:
 			for f in uploaded:
+				# Skip if already uploaded/processed in this session
+				if any(d.file_name == f.name for d in st.session_state.documents):
+					st.sidebar.info(f"{f.name} already uploaded")
+					continue
 				# Save and validate
 				path = save_upload(f)
 				err = validate_file_size(path, settings.max_file_size_mb)
