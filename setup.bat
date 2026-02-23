@@ -4,12 +4,6 @@ REM Run this script to set up and start the RUSS application
 
 setlocal enabledelayedexpansion
 
-echo.
-echo ======================================================================
-echo RUSS: RAG-Based Tutor for Specific Subjects
-echo ======================================================================
-echo.
-
 REM Step 1: Check Python
 echo [1/5] Checking Python environment...
 python --version >nul 2>&1
@@ -58,9 +52,7 @@ if errorlevel 1 (
 REM Step 5: Instructions
 echo [5/5] Setup complete!
 echo.
-echo ======================================================================
 echo ✓ RUSS is ready to run!
-echo ======================================================================
 echo.
 echo Next steps:
 echo.
@@ -75,9 +67,7 @@ echo    > streamlit run app.py
 echo.
 echo 4. Open http://localhost:8501 in your browser
 echo.
-echo ======================================================================
 echo For help, see README.md
-echo ======================================================================
 echo.
 
 pause

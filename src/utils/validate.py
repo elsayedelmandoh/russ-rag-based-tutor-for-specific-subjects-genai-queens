@@ -8,7 +8,9 @@ from pathlib import Path
 project_root = Path(__file__).parent
 sys.path.insert(0, str(project_root))
 
+print("=" * 60)
 print("RUSS RAG Tutor - Import Validation")
+print("=" * 60)
 
 try:
     print("\n[1/6] Importing schemas...")

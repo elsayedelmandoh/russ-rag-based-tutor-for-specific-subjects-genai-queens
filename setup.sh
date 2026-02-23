@@ -4,11 +4,6 @@
 
 set -e  # Exit on error
 
-echo "======================================================================"
-echo "RUSS: RAG-Based Tutor for Specific Subjects"
-echo "======================================================================"
-echo ""
-
 # Step 1: Python environment
 echo "[1/5] Checking Python environment..."
 if ! command -v python &> /dev/null; then
@@ -43,9 +38,7 @@ echo ""
 # Step 5: Instructions
 echo "[5/5] Setup complete!"
 echo ""
-echo "======================================================================"
 echo "✓ RUSS is ready to run!"
-echo "======================================================================"
 echo ""
 echo "Next steps:"
 echo ""
@@ -60,6 +53,4 @@ echo "   $ streamlit run app.py"
 echo ""
 echo "4. Open http://localhost:8501 in your browser"
 echo ""
-echo "======================================================================"
 echo "For help, see README.md"
-echo "======================================================================"

@@ -59,3 +59,38 @@ User sees:
     ├─ Generated answer
     ├─ 📖 Sources footer (page numbers + snippets)
     └─ Optional: reasoning trace (CoT)   
+```
+
+### Project Sketch
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                    STREAMLIT UI (app.py)                 │
+│  - Subject management                                    │
+│  - PDF upload interface                                  │
+│  - Chat interface                                        │
+│  - Document status tracking                              │
+└──────────────────┬──────────────────────────────────────┘
+                   │
+       ┌───────────┴──────────────┐
+       ▼                          ▼
+┌──────────────────┐     ┌────────────────┐
+│   INGESTION      │     │  GENERATION    │
+│  (PDF → Chunks)  │     │ (Query → Ans)  │
+├──────────────────┤     ├────────────────┤
+│ pdf_parser.py    │     │ rag_chain.py   │
+│ chunking.py      │     │ llm_client.py  │
+│ embeddings.py    │     │ grounding.py   │
+│ pipeline.py      │     │ guardrail.py   │
+└────────┬─────────┘     └──────┬─────────┘
+         │                      │
+         └──────────┬───────────┘
+                    │
+              ┌─────▼──────┐
+              │ RETRIEVAL  │
+              ├────────────┤
+              │ ChromaDB   │
+              │ BM25 Index │
+              │ Reranker   │
+              └────────────┘
+```

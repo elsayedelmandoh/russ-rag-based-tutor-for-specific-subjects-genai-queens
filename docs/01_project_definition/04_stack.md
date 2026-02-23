@@ -66,3 +66,17 @@ This document outlines the specific technologies and tools used to build the **L
 * **Frontend / User Interface:** `Streamlit`
 
     * *Role:* A clean interface that displays the chat history, thought process (CoT), and clickable source citations.
+
+## Technology Stack Summary
+
+| Layer              | Technology         |
+| **UI**             | Streamlit 1.28+    |
+| **LLM**            | Ollama + llama3.2  |
+| **Embeddings**     | nomic-embed-text   |
+| **Vector DB**      | ChromaDB           |
+| **Keyword Search** | BM25 (rank-bm25)   |
+| **Reranking**      | bge-reranker-base  |
+| **Safety**         | llama-guard3:1b    |
+| **PDF Parsing**    | PyMuPDF            |
+| **Framework**      | LangChain, Pydantic|
+| **Language**       | Python 3.11        |

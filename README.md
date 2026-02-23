@@ -16,7 +16,7 @@ RUSS is a **private, offline Retrieval-Augmented Generation (RAG) system** desig
 
 ### Prerequisites
 
-- **Python 3.9+** (tested on 3.11)
+- **Python 3.9+** (tested on 3.11) - Run setup.bat for windows/ setup.sh for linux
 - **Ollama** (for running local LLMs) - [Download](https://ollama.ai)
 - **pip** (Python package manager)
 
