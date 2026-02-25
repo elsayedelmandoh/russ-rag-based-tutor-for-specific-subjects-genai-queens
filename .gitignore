@@ -25,10 +25,7 @@ Thumbs.db
 *.swp
 
 # Project metadata
-CLAUDE.md
-AGENTS.md
 .claude/
 .kilocode/
 .specify/
 specs/
-models/
