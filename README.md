@@ -244,7 +244,7 @@ This project is part of the Air Defense College curriculum initiative.
 
 ## Author
 Developed by Mohamed Kamal - AI Engineer.   
-LinkedIn: 
+LinkedIn: https://www.linkedin.com/in/mohamed-kamal-has/?utm_source=share_via&utm_content=profile&utm_medium=member_android
 
 Developed by Elsayed Elmandoh — NLP Engineer.  
 LinkedIn: https://linkedin.com/in/elsayed-elmandoh-b5849a1b8/  

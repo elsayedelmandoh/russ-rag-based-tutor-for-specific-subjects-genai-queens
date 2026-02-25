@@ -1,5 +1,4 @@
-
-# Project Report — RUSS (RAG-Based Tutor)
+# RUSS (RAG-Based Tutor for Specific Subjects)
 
 **Project overview:**
 - **RUSS** is a private, offline Retrieval-Augmented Generation tutor that ingests course PDFs and answers student questions with citation-backed responses. The system runs locally (no cloud data leakage) and scopes answers to user-provided subject materials.
@@ -40,6 +39,6 @@ streamlit run app.py
 - [github](https://github.com/elsayedelmandoh/russ-rag-based-tutor-for-specific-subjects-genai-queens)
 
 **Demo video:**
-- [drive]()
+- [drive](https://drive.google.com/drive/folders/1bLZmUiGMu4ppXvzaLw8MQe76chV5O1ZN?usp=sharing)
 
 ---
