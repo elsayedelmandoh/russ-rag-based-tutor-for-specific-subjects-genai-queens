@@ -27,11 +27,13 @@ def chunk_document(text: str, file_name: str, collection_name: str, chunk_size: 
 
         # Determine page number based on number of form-feed separators
         # preceding the chunk start. This works even if the chunk does
-        # not itself contain a page break.
+        # not itself contain a page break. Always compute: count prior
+        # form-feeds and add 1 (1-indexed). For single-page PDFs with no
+        # form-feeds, count is 0, so page_number becomes 1.
         try:
-            page_number = text[:start].count("\f") + 1 if "\f" in text else None
+            page_number = text[:start].count("\f") + 1
         except Exception:
-            page_number = None
+            page_number = 1  # Default to page 1 if count fails
 
         chunks.append(
             Chunk(
