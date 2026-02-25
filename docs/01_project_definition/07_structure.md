@@ -13,7 +13,16 @@ russ-rag-based-tutor-for-specific-subjects-genai-queens/
 │   ├── curriculum/                  # Sample/reference curriculum PDFs
 │   └── uploads/                     # Temporary directory for user-uploaded PDFs
 ├── docs/
-│   └── 00_project_definition/       # Architecture, workflow, and stack documentation
+│   └── 01_project_definition/       # Architecture, workflow, and stack documentation
+│       ├── 00_quickstart.md
+│       ├── 01_problem.md
+│       ├── 02_goal.md
+│       ├── 03_solution.md
+│       ├── 04_stack.md
+│       ├── 05_architecture.md
+│       ├── 06_workflow.md
+│       ├── 07_structure.md
+│       └── 08_report.md
 ├── src/                             # Application source code (modular design)
 │    ├── config/                     # Settings, environment loading, prompt templates
 │    │   ├── prompts.py              # 
@@ -39,7 +48,13 @@ russ-rag-based-tutor-for-specific-subjects-genai-queens/
 │    └── utils/                      # Helper functions, validators, data processing
 │    │   ├── helpers.py              #
 │    │   └── validate.py             #
-└── tests/                           # Unit tests for PDF parsing, Ollama integration
+└── tests/                           # Unit tests and test suites
+    ├── __init__.py
+    ├── conftest.py
+    ├── contract/
+    ├── integration/
+    ├── results/
+    └── unit/
 ```
 
 ### Module Descriptions

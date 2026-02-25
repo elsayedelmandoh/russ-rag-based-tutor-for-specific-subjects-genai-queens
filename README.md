@@ -194,36 +194,6 @@ ollama pull llama3.2 nomic-embed-text llama-guard3:1b
   - Reranking: 100-500ms
   - Generation: 2-5 seconds
 
-## Project Structure
-
-```
-russ-rag-based-tutor/
-├── app.py                    # Streamlit UI
-├── validate.py               # Validation script
-├── requirements.txt          # Dependencies
-├── .env                      # Configuration
-├── README.md                 # This file
-│
-├── src/
-│   ├── config/               # Settings & prompts
-│   ├── models/               # Data schemas
-│   ├── ingestion/            # PDF processing
-│   ├── retrieval/            # Search & ranking
-│   ├── generation/           # LLM & responses
-│   ├── safety/               # Guardrails
-│   └── utils/                # Helpers
-│
-├── data/
-│   ├── chromadb/             # Vector database
-│   ├── uploads/              # Uploaded PDFs
-│   └── curriculum/           # Reference materials
-│
-├── docs/
-│   └── 01_project_definition/ # Architecture docs
-│
-└── tests/                    # Unit tests
-```
-
 ## Development
 
 ### Running Tests
