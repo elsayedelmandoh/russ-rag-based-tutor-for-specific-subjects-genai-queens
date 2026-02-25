@@ -30,40 +30,5 @@ AGENTS.md
 .claude/
 .kilocode/
 .specify/
-<<<<<<< HEAD
-# Environment
-.env
-.venv/
-venv/
-
-# Python
-__pycache__/
-*.pyc
-*.pyo
-dist/
-*.egg-info/
-
-# Data (runtime generated)
-data/chromadb/
-data/uploads/
-
-# IDE
-.vscode/
-.idea/
-
-# OS
-.DS_Store
-Thumbs.db
-*.tmp
-*.swp
-
-# Project metadata
-CLAUDE.md
-AGENTS.md
-.claude/
-.kilocode/
-.specify/
-=======
->>>>>>> runrun
 specs/
 models/
