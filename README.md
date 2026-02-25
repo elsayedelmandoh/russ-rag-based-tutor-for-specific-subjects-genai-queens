@@ -243,7 +243,7 @@ This project is part of the Air Defense College curriculum initiative.
 4. Push to your fork and open a pull request.
 
 ## Author
-Developed by Mohamed Kamal - AI Engineer.
+Developed by Mohamed Kamal - AI Engineer.   
 LinkedIn: 
 
 Developed by Elsayed Elmandoh — NLP Engineer.  
