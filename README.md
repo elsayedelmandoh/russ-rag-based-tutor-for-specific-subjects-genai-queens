@@ -1,5 +1,21 @@
 # RUSS: RAG-Based Tutor for Specific Subjects
 
+## Table of Contents
+- [Overview](#overview)
+- [Quick Start](#quick-start)
+- [How to Use](#how-to-use)
+- [Architecture](#architecture)
+- [Configuration](#configuration)
+- [Validation](#validation)
+- [Troubleshooting](#troubleshooting)
+- [Model Information](#model-information)
+- [Performance Benchmarks](#performance-benchmarks)
+- [Development](#development)
+- [Known Limitations](#known-limitations)
+- [Contributing](#contributing)
+- [Author](#author)
+
+
 ## Overview
 
 RUSS is a **private, offline Retrieval-Augmented Generation (RAG) system** designed as a "Private NotebookLM" for educational institutions. It ingests PDF course materials into a secure locally-hosted vector store and allows students to ask natural language questions with citation-backed answers.
@@ -219,6 +235,20 @@ pytest tests/integration -v
 ## License & Attribution
 
 This project is part of the Air Defense College curriculum initiative.
+
+## Contributing
+1. Fork the repository.
+2. Create a branch for your change.
+3. Make changes, commit with clear messages.
+4. Push to your fork and open a pull request.
+
+## Author
+Developed by Mohamed Kamal - AI Engineer.
+LinkedIn: 
+
+Developed by Elsayed Elmandoh — NLP Engineer.  
+LinkedIn: https://linkedin.com/in/elsayed-elmandoh-b5849a1b8/  
+X/Twitter: https://x.com/aangpy
 
 ---
 
