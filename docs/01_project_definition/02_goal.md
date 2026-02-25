@@ -8,5 +8,8 @@ Primary goals:
 
 Non-goals / constraints:
 - No integration with cloud LLM APIs.
-- No image-based OCR or multi-modal processing.
-- Minimal operational overhead: simple Streamlit UI to upload PDFs and chat.
+- No image/diagram analysis (text only)
+- No model fine-tuning
+- No persistent chat history
+- No user authentication
+- Single-machine deployment (no distributed setup)

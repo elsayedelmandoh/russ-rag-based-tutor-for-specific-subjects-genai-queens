@@ -10,10 +10,10 @@
    - Creates chunks of ~1000 tokens with 100-token overlap
    - Attaches metadata: `source_file`, `page_number`, `section_title`
 4. Embeddings generated via **nomic-embed-text** (Ollama)
-5. Storage in two structures:
+5. Chunks stored in:
    - **ChromaDB collection** (one per PDF source) for semantic search
    - **BM25 Index** for keyword-based retrieval
-6. Collections persist on disk (`data/chromadb/`) for future sessions
+6. Collections persist on disk (`data/chromadb/`) marked as READY
 
 ### Query & Retrieval (User Asks a Question)
 
@@ -21,13 +21,15 @@
 8. **Hybrid Retriever** (EnsembleRetriever) fetches results:
    - Semantic search from ChromaDB (0.7 weight)
    - Keyword search from BM25 (0.3 weight)
-   - Merges and deduplicates results
-9. **Re-ranker** (bge-reranker-base) re-orders top-K results:
-   - Cross-encoder model refines relevance ranking
-   - Ensures only highest-quality chunks reach the LLM
+   - Top-20 candidates merged and deduplicated
+9. **Top-5 re-ranked** using cross-encoder (bge-reranker-base)
+   - Context built from top results
+   - llama3.2 generates answer with context
+   - Citations extracted with page numbers
 10. **Guardrails** (llama-guard3) performs safety check:
     - Ensures query and context remain within educational scope
     - Blocks potentially harmful requests
+    - Response displayed with sources footer
 
 ### Generation & Grounding (LLM Response)
 
