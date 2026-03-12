@@ -1,5 +1,11 @@
 # RUSS: RAG-Based Tutor for Specific Subjects
 
+<p align="center">
+  <img src="docs/02_results/res1.png" alt="Sentiment Sleuth — pos results" width="45%">
+  &nbsp; &nbsp;
+  <img src="docs/02_results/res2.png" alt="Sentiment Sleuth — neg results" width="45%">
+</p>
+
 ## Table of Contents
 - [Overview](#overview)
 - [Quick Start](#quick-start)
