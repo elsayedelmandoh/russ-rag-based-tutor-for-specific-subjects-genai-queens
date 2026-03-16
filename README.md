@@ -1,5 +1,8 @@
 # RUSS: RAG-Based Tutor for Specific Subjects
 
+[![github](https://img.shields.io/badge/GitHub-sentiment__sleuth-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/elsayedelmandoh/russ-rag-based-tutor-for-specific-subjects-genai-queens)
+[![linkedin-post](https://img.shields.io/badge/LinkedIn%20Post-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/posts/elsayed-elmandoh-b5849a1b8_can-an-air-gapped-ai-tutor-answer-curriculum-activity-7438317665930067968-TdoF?utm_source=share&utm_medium=member_desktop&rcm=ACoAADKeEvQBHt4xOmwiQTXdmYQjiJS81WuE3sc)
+
 <p align="center">
   <img src="docs/02_results/res1.png" alt="Sentiment Sleuth — pos results" width="45%">
   &nbsp; &nbsp;
